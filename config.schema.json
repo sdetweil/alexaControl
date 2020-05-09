@@ -1,0 +1,177 @@
+{
+    "schema": {
+        "alexaControl": {
+            "type": "object",
+            "title": "AlexaControl Settings",
+            "properties": {
+                "pm2ProcessName": {
+                    "default":"smart-mirror",
+                    "type": "string",
+                    "title": "pm2 process Name",
+                    "required": false
+                },
+                "startPort": {
+                    "type": "number",
+                    "title": "device port range",
+                    "enum": [14000,
+                             14500,
+                             15000,
+                             15500,   
+                             16000,
+                             16500,
+                             17000,
+                             17500,
+                             18000   
+                         ]                
+                },
+                "deviceName":{
+                    "default":"",
+                    "type":"string",
+                    "title": "Name of this mirror device",
+                    "required": false
+                },
+                "blankingStyle":{
+                    "default":"vcgencmd",
+                    "enum":["vcgencmd","tvservice","hiding"],
+                    "title":"command to use for blanking screen on sleep",
+                    "required":false
+                },
+                "icon":{
+                    "type": "object",
+                    "title": "Icon settings",
+                    "properties": {
+                        "visible":{
+                            "default": false,
+                            "type":"boolean",
+                            "title": "if Icon should be shown",
+                            "required": false
+                        },
+                        "url":{
+                            "default":"https://i.imgur.com/wk0YF1V.png?1",
+                            "type":"string",
+                            "title":"url of the image icon",
+                            "required":false
+                        },
+                        "width":{
+                            "default": "50",
+                            "type": "number",
+                            "title": "icon width",
+                            "required": false
+                        },
+                        "height":{
+                            "default": "50",
+                            "type": "number",
+                            "title": "icon height",
+                            "required": false                            
+                        }
+                    }
+                },
+                "devices":{
+                    "type": "array",
+                        "items": {
+                            "type": "object",
+                            "title": "Device",
+                            "properties": {
+                                "name": {
+                                  "type": "string",
+                                  "title": "Name",
+                                  "required": true
+                                },     
+                                "port": {
+                                  "type": "number",
+                                  "title": "Port",
+                                  "required": true
+                                }, 
+                                "handler":{
+                                    "type":"string",
+                                    "title":"Handler",
+                                    "required":true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+    "form":[    
+        {
+
+            "type":"fieldset",
+            "title":"AlexaControl Settings",
+            "expandable":true,
+            "order":0,
+            "items":[
+                {
+                  "type":"section",
+                      "items":[
+                        {
+                           "key":"alexaControl.startPort",
+                           "valueInLegend": true
+                        },
+                        {
+                          "key": "alexaControl.pm2ProcessName"
+                        },
+                        {
+                          "key": "alexaControl.deviceName"
+                        },
+                        {
+                          "key": "alexaControl.blankingStyle"
+                        },
+                        {
+                          "key":"alexaControl.icon",
+                          "expandable":true
+                        }
+                      ]
+                  },
+                  {
+                    "title":"Custom Device configuration",
+                    "type":"fieldset",      
+                    "_comment":"put this content at the bottom of list of config controls",
+                    "expandable":true,        
+                    "order":100,
+                    "items": [
+                        {
+                          "type":"tabarray",
+                          "items":[
+                            {
+                              "type":"section",          
+                              "legend":"{{value}}",
+                              "items":[
+                                {
+                                    "description":"Device Name",              
+                                    "key":"alexaControl.devices[].name",
+                                    "valueInLegend": true                           
+                                },
+                                {
+                                    "key":"alexaControl.devices[].port",
+                                    "description":"Device port"
+                                },
+                                {
+                                    "key":"alexaControl.devices[].handler",
+                                    "description":"code to process the notification received from echo device",
+
+                                    "type": "ace",
+                                    "aceMode": "javascript",
+                                    "aceTheme": "twilight",
+                                    "width": "100%",
+                                    "height": "200px"    
+                                }  
+                              ]
+                            }
+                          ]
+                        }
+                    ]
+                }
+            ]
+        }        
+    ],
+    "value":{
+        "alexaControl":{
+          "devices": [
+            {  "name": "  ",
+                "port":"{{startPort.value}}",
+            "handler": "testing testing"}
+            ]
+        }
+    }    
+}
