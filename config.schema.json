@@ -2,17 +2,17 @@
     "schema": {
         "alexaControl": {
             "type": "object",
-            "title": "AlexaControl Settings",
+            "title": "{{main_title}}",
             "properties": {
                 "pm2ProcessName": {
                     "default":"smart-mirror",
                     "type": "string",
-                    "title": "pm2 process Name",
+                    "title": "{{pm2 process Name}}",
                     "required": false
                 },
                 "startPort": {
                     "type": "number",
-                    "title": "device port range",
+                    "title": "{{port_range}}",
                     "enum": [14000,
                              14500,
                              15000,
@@ -27,41 +27,41 @@
                 "deviceName":{
                     "default":"",
                     "type":"string",
-                    "title": "Name of this mirror device",
+                    "title": "{{device_name}}",
                     "required": false
                 },
                 "blankingStyle":{
                     "default":"vcgencmd",
                     "enum":["vcgencmd","tvservice","hiding"],
-                    "title":"command to use for blanking screen on sleep",
+                    "title":"{{approach}}",
                     "required":false
                 },
                 "icon":{
                     "type": "object",
-                    "title": "Icon settings",
+                    "title": "{{Icon settings}}",
                     "properties": {
                         "visible":{
                             "default": false,
                             "type":"boolean",
-                            "title": "if Icon should be shown",
+                            "title": "{{if Icon should be shown}}",
                             "required": false
                         },
                         "url":{
                             "default":"https://i.imgur.com/wk0YF1V.png?1",
                             "type":"string",
-                            "title":"url of the image icon",
+                            "title":"{{url of the image icon}}",
                             "required":false
                         },
                         "width":{
                             "default": "50",
                             "type": "number",
-                            "title": "icon width",
+                            "title": "{{icon width}}",
                             "required": false
                         },
                         "height":{
                             "default": "50",
                             "type": "number",
-                            "title": "icon height",
+                            "title": "{{icon height}}",
                             "required": false                            
                         }
                     }
@@ -70,21 +70,21 @@
                     "type": "array",
                         "items": {
                             "type": "object",
-                            "title": "Device",
+                            "title": "{{custom_Device}}",
                             "properties": {
                                 "name": {
                                   "type": "string",
-                                  "title": "Name",
+                                  "title": "{{custom_Name}}",
                                   "required": true
                                 },     
                                 "port": {
                                   "type": "number",
-                                  "title": "Port",
+                                  "title": "{{custom_Port}}",
                                   "required": true
                                 }, 
                                 "handler":{
                                     "type":"string",
-                                    "title":"Handler",
+                                    "title":"{{custom_Handler}}",
                                     "required":true
                                 }
                             }
@@ -97,7 +97,7 @@
         {
 
             "type":"fieldset",
-            "title":"AlexaControl Settings",
+            "title":"{{main_title}}",
             "expandable":true,
             "order":0,
             "items":[
@@ -124,7 +124,7 @@
                       ]
                   },
                   {
-                    "title":"Custom Device configuration",
+                    "title":"{{custom dev desc}}",
                     "type":"fieldset",      
                     "_comment":"put this content at the bottom of list of config controls",
                     "expandable":true,        
@@ -138,17 +138,17 @@
                               "legend":"{{value}}",
                               "items":[
                                 {
-                                    "description":"Device Name",              
+                                    "description":"{{device_name}}",              
                                     "key":"alexaControl.devices[].name",
                                     "valueInLegend": true                           
                                 },
                                 {
                                     "key":"alexaControl.devices[].port",
-                                    "description":"Device port"
+                                    "description":"{{custom_Port}}"
                                 },
                                 {
                                     "key":"alexaControl.devices[].handler",
-                                    "description":"code to process the notification received from echo device",
+                                    "description":"{{custom handler desc}}",
 
                                     "type": "ace",
                                     "aceMode": "javascript",
@@ -169,7 +169,7 @@
         "alexaControl":{
           "devices": [
             {  "name": "  ",
-                "port":"{{startPort.value}}",
+                "port":"{{startPort}}",
             "handler": "testing testing"}
             ]
         }

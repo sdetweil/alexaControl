@@ -1,29 +1,18 @@
-function _Dilbert($scope, $http, $q, AutoSleepService, Focus) {
+function _Dilbert($scope, $http, $q, AutoSleepService, Focus,$translate) {
 
 var FauxMo = require('node-fauxmo');
 var pm2 = require('pm2');
 const exec = require("child_process").exec;
-			//var setDevices = function(){
-var translations =
-					{
-					    "PAGE": "page ",
-					    "REFRESH": "refresh mirror",
-					    "RESTART": "restart mirror",
-					    "STOP": "stop mirror",
-					    "REBOOT": "reboot mirror",
-					    "SHUTDOWN": "shutdown mirror",
-					    "MONITOR": "mirror"					    
-					}
-				var d = FauxMo.devices
-				var port = config.alexaControl.startPort
-		        var cD = customDevices(config.alexaControl); 
-		       // var nD = notificationDevices(cD, {});
-		        //var pD = pageDevices(nD);
-		        var mD = menuDevices(cD);
 
-		        fauxMoPages = new FauxMo(mD);       // creates fauxmo devices
-		        console.log(" there are "+fauxMoPages.length+" active")
-		    //}
+			var d = FauxMo.devices
+			var port = config.alexaControl.startPort
+	        var cD = customDevices(config.alexaControl); 
+	       // var nD = notificationDevices(cD, {});
+	        //var pD = pageDevices(nD);
+	        var mD = menuDevices(cD);
+
+	        fauxMoPages = new FauxMo(mD);       // creates fauxmo devices
+	        console.log(" there are "+fauxMoPages.length+" active")
 
 			function formattedName (devname,actionString){
 		        var result=actionString
@@ -38,8 +27,6 @@ var translations =
 		        return result;
 		    }
 		    
-
-
 		     function customDevices(customD){      //  creates your custom devices from config		     	
 		        for(i = 0; i < Object.keys(customD.devices).length; i++){
 		            if(customD.devices[i].port === undefined){
@@ -58,7 +45,7 @@ var translations =
 
 		        if(config.alexaControl.refresh | true ){
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["REFRESH"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.REFRESH"))
 		            device.port = port
 		            device.handler = function(action) {sendSocketNotification("ACTION", "refresh")}
 
@@ -70,7 +57,7 @@ var translations =
 
 		        if(config.alexaControl.restart | true ){        // only with PM2
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["RESTART"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.RESTART"))
 		            device.port = port
 		            device.handler = function(action) {
 		                pm2.connect((err) => {
@@ -94,7 +81,7 @@ var translations =
 		        
 		        if(config.alexaControl.stop | true ){        // only with PM2
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["STOP"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.STOP"))
 		            device.port = port
 		            device.handler = function(action) {
 		                pm2.connect((err) => {
@@ -118,7 +105,7 @@ var translations =
 		        
 		        if(config.alexaControl.reboot | true ){        //reboot the pi
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["REBOOT"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.REBOOT"))
 		            device.port =port
 		            device.handler = function(action) {
 		                exec("sudo shutdown -r now", opts, (error, stdout, stderr) => {
@@ -132,7 +119,7 @@ var translations =
 		        
 		        if(config.alexaControl.shutdown | true ){        // shutdwon the pi
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["SHUTDOWN"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.SHUTDOWN"))
 		            device.port = port
 		            device.handler = function(action) {
 		                exec("sudo shutdown -h now", opts, (error, stdout, stderr) => {
@@ -153,7 +140,7 @@ var translations =
 		        if(config.alexaControl.monitorToggle | true ){ 
 		        	console.log("monitorToggle requested")
 		            device = {}
-		            device.name = formattedName(config.alexaControl.deviceName,translations["MONITOR"])
+		            device.name = formattedName(config.alexaControl.deviceName,$translate.instant("alexaControl.MONITOR"))
 		            device.port = port
 		            if(config.alexaControl.blankingStyle =='vgencmd'){
 		                device.handler = function(action) {     
