@@ -1,177 +1,179 @@
 {
-    "schema": {
-        "alexaControl": {
-            "type": "object",
-            "title": "{{main_title}}",
-            "properties": {
-                "pm2ProcessName": {
-                    "default":"smart-mirror",
-                    "type": "string",
-                    "title": "{{pm2 process Name}}",
-                    "required": false
-                },
-                "startPort": {
-                    "type": "number",
-                    "title": "{{port_range}}",
-                    "enum": [14000,
-                             14500,
-                             15000,
-                             15500,   
-                             16000,
-                             16500,
-                             17000,
-                             17500,
-                             18000   
-                         ]                
-                },
-                "deviceName":{
-                    "default":"",
-                    "type":"string",
-                    "title": "{{device_name}}",
-                    "required": false
-                },
-                "blankingStyle":{
-                    "default":"vcgencmd",
-                    "enum":["vcgencmd","tvservice","hiding"],
-                    "title":"{{approach}}",
-                    "required":false
-                },
-                "icon":{
-                    "type": "object",
-                    "title": "{{Icon settings}}",
-                    "properties": {
-                        "visible":{
-                            "default": false,
-                            "type":"boolean",
-                            "title": "{{if Icon should be shown}}",
-                            "required": false
-                        },
-                        "url":{
-                            "default":"https://i.imgur.com/wk0YF1V.png?1",
-                            "type":"string",
-                            "title":"{{url of the image icon}}",
-                            "required":false
-                        },
-                        "width":{
-                            "default": "50",
-                            "type": "number",
-                            "title": "{{icon width}}",
-                            "required": false
-                        },
-                        "height":{
-                            "default": "50",
-                            "type": "number",
-                            "title": "{{icon height}}",
-                            "required": false                            
-                        }
-                    }
-                },
-                "devices":{
-                    "type": "array",
-                        "items": {
-                            "type": "object",
-                            "title": "{{custom_Device}}",
-                            "properties": {
-                                "name": {
-                                  "type": "string",
-                                  "title": "{{custom_Name}}",
-                                  "required": true
-                                },     
-                                "port": {
-                                  "type": "number",
-                                  "title": "{{custom_Port}}",
-                                  "required": true
-                                }, 
-                                "handler":{
-                                    "type":"string",
-                                    "title":"{{custom_Handler}}",
-                                    "required":true
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-    "form":[    
-        {
+	"schema": {
+		"alexaControl": {
+			"type": "object",
+			"title": "{{main_title}}",
+			"properties": {
+				"pm2ProcessName": {
+					"default": "smart-mirror",
+					"type": "string",
+					"title": "{{pm2 process Name}}",
+					"required": false
+				},
+				"startPort": {
+					"type": "number",
+					"title": "{{port_range}}",
+					"enum": [
+						14000,
+						14500,
+						15000,
+						15500,
+						16000,
+						16500,
+						17000,
+						17500,
+						18000
+					]
+				},
+				"deviceName": {
+					"default": "",
+					"type": "string",
+					"title": "{{device_name}}",
+					"required": false
+				},
+				"blankingStyle": {
+					"default": "vcgencmd",
+					"enum": ["vcgencmd", "tvservice", "hiding"],
+					"title": "{{approach}}",
+					"required": false
+				},
+				"icon": {
+					"type": "object",
+					"title": "{{Icon settings}}",
+					"properties": {
+						"visible": {
+							"default": false,
+							"type": "boolean",
+							"title": "{{if Icon should be shown}}",
+							"required": false
+						},
+						"url": {
+							"default": "https://i.imgur.com/wk0YF1V.png?1",
+							"type": "string",
+							"title": "{{url of the image icon}}",
+							"required": false
+						},
+						"width": {
+							"default": "50",
+							"type": "number",
+							"title": "{{icon width}}",
+							"required": false
+						},
+						"height": {
+							"default": "50",
+							"type": "number",
+							"title": "{{icon height}}",
+							"required": false
+						}
+					}
+				},
+				"devices": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"title": "{{custom_Device}}",
+						"properties": {
+							"name": {
+								"type": "string",
+								"title": "{{custom_Name}}",
+								"required": true
+							},
+							"port": {
+								"type": "number",
+								"title": "{{custom_Port}}",
+								"required": true
+							},
+							"handler": {
+								"type": "string",
+								"title": "{{custom_Handler}}",
+								"required": true
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"form": [
+		{
+			"type": "fieldset",
+			"title": "{{main_title}}",
+			"expandable": true,
+			"order": 0,
+			"items": [
+				{
+					"type": "section",
+					"items": [
+						{
+							"key": "alexaControl.startPort",
+							"valueInLegend": true
+						},
+						{
+							"key": "alexaControl.pm2ProcessName"
+						},
+						{
+							"key": "alexaControl.deviceName"
+						},
+						{
+							"key": "alexaControl.blankingStyle"
+						},
+						{
+							"key": "alexaControl.icon",
+							"expandable": true
+						}
+					]
+				},
+				{
+					"title": "{{custom dev desc}}",
+					"type": "fieldset",
+					"_comment": "put this content at the bottom of list of config controls",
+					"expandable": true,
+					"order": 100,
+					"items": [
+						{
+							"type": "tabarray",
+							"items": [
+								{
+									"type": "section",
+									"legend": "{{value}}",
+									"items": [
+										{
+											"description": "{{device_name}}",
+											"key": "alexaControl.devices[].name",
+											"valueInLegend": true
+										},
+										{
+											"key": "alexaControl.devices[].port",
+											"description": "{{custom_Port}}"
+										},
+										{
+											"key": "alexaControl.devices[].handler",
+											"description": "{{custom handler desc}}",
 
-            "type":"fieldset",
-            "title":"{{main_title}}",
-            "expandable":true,
-            "order":0,
-            "items":[
-                {
-                  "type":"section",
-                      "items":[
-                        {
-                           "key":"alexaControl.startPort",
-                           "valueInLegend": true
-                        },
-                        {
-                          "key": "alexaControl.pm2ProcessName"
-                        },
-                        {
-                          "key": "alexaControl.deviceName"
-                        },
-                        {
-                          "key": "alexaControl.blankingStyle"
-                        },
-                        {
-                          "key":"alexaControl.icon",
-                          "expandable":true
-                        }
-                      ]
-                  },
-                  {
-                    "title":"{{custom dev desc}}",
-                    "type":"fieldset",      
-                    "_comment":"put this content at the bottom of list of config controls",
-                    "expandable":true,        
-                    "order":100,
-                    "items": [
-                        {
-                          "type":"tabarray",
-                          "items":[
-                            {
-                              "type":"section",          
-                              "legend":"{{value}}",
-                              "items":[
-                                {
-                                    "description":"{{device_name}}",              
-                                    "key":"alexaControl.devices[].name",
-                                    "valueInLegend": true                           
-                                },
-                                {
-                                    "key":"alexaControl.devices[].port",
-                                    "description":"{{custom_Port}}"
-                                },
-                                {
-                                    "key":"alexaControl.devices[].handler",
-                                    "description":"{{custom handler desc}}",
-
-                                    "type": "ace",
-                                    "aceMode": "javascript",
-                                    "aceTheme": "twilight",
-                                    "width": "100%",
-                                    "height": "200px"    
-                                }  
-                              ]
-                            }
-                          ]
-                        }
-                    ]
-                }
-            ]
-        }        
-    ],
-    "value":{
-        "alexaControl":{
-          "devices": [
-    "name": "  ",
-                "port":"{{startPort}}",
-            "handler": "testing testing"}
-            ]
-        }
-    }    
+											"type": "ace",
+											"aceMode": "javascript",
+											"aceTheme": "twilight",
+											"width": "100%",
+											"height": "200px"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"value": {
+		"alexaControl": {
+			"devices": [
+				{
+					"name": "  ",
+					"port": "{{startPort}}",
+					"handler": "testing testing"
+				}
+			]
+		}
+	}
 }
