@@ -168,7 +168,7 @@
     "value":{
         "alexaControl":{
           "devices": [
-            {  "name": "  ",
+        {  "name": "  ",
                 "port":"{{startPort}}",
             "handler": "testing testing"}
             ]
