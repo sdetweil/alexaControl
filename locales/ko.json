@@ -1,0 +1,29 @@
+{
+	"alexaControl": {
+		"PAGE": "page ",
+		"REFRESH": "refresh mirror",
+		"RESTART": "restart mirror",
+		"STOP": "stop mirror",
+		"REBOOT": "reboot mirror",
+		"SHUTDOWN": "shutdown mirror",
+		"MONITOR": "mirror",
+		"config": {
+			"main_title": "AlexaControl Settings",
+			"port_range": "장치 포트 범위",
+			"device_name": "이 미러 장치의 이름",
+			"approach": "수면시 블랭킹 화면에 사용하는 방법",
+			"pm2 process Name": "pm2 프로세스 이름",
+			"Icon settings": "아이콘 설정",
+			"if Icon should be shown": "아이콘이 표시되어야하는 경우",
+			"url of the image icon": "이미지 아이콘의 URL",
+			"icon width": "아이콘 너비",
+			"icon height": "아이콘 높이",
+			"custom_Device": "장치",
+			"custom_Name": "이름",
+			"custom_Port": "포트",
+			"custom_Handler": "매니저",
+			"custom handler desc": "에코 장치에서 수신 된 알림을 처리하는 코드",
+			"custom dev desc": "맞춤형 장치 구성"
+		}
+	}
+}

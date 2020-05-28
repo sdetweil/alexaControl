@@ -1,0 +1,29 @@
+{
+	"alexaControl": {
+		"PAGE": "Seite ",
+		"REFRESH": "Aktualisieren",
+		"RESTART": "Neustart PM2",
+		"STOP": "Stop PM2",
+		"REBOOT": "Neustarten Pi",
+		"SHUTDOWN": "Herunterfahren Pi",
+		"MONITOR": "Monitor",
+		"config": {
+			"main_title": "AlexaControl Settings",
+			"port_range": "Geräteportbereich",
+			"device_name": "Name dieses Spiegelgeräts",
+			"approach": "Ansatz zum Ausblenden des Bildschirms im Schlaf",
+			"pm2 process Name": "pm2 Prozessname",
+			"Icon settings": "Symboleinstellungens",
+			"if Icon should be shown": "ob das Symbol angezeigt werden soll",
+			"url of the image icon": "Bildsymbols URL",
+			"icon width": "Symbolbreite",
+			"icon height": "Symbolhöhe",
+			"custom_Device": "Gerät",
+			"custom_Name": "Gerät",
+			"custom_Port": "Netzwerkanschluss",
+			"custom_Handler": "Handler",
+			"custom handler desc": "Code zum Verarbeiten der vom Echo-Gerät empfangenen Benachrichtigung",
+			"custom dev desc": "Benutzerdefinierte Gerätekonfiguration"
+		}
+	}
+}

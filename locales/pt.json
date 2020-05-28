@@ -1,0 +1,29 @@
+{
+	"alexaControl": {
+		"PAGE": "page ",
+		"REFRESH": "refresh mirror",
+		"RESTART": "restart mirror",
+		"STOP": "stop mirror",
+		"REBOOT": "reboot mirror",
+		"SHUTDOWN": "shutdown mirror",
+		"MONITOR": "mirror",
+		"config": {
+			"main_title": "AlexaControl Settings",
+			"port_range": "intervalo de portas do dispositivo",
+			"device_name": "Nome deste dispositivo espelho",
+			"approach": "abordagem a ser usada para apagar a tela durante o sono",
+			"pm2 process Name": "Nome do processo pm2",
+			"Icon settings": "Configurações de ícone",
+			"if Icon should be shown": "se o ícone deve ser mostrado",
+			"url of the image icon": "URL do ícone da imagem",
+			"icon width": "largura do ícone",
+			"icon height": "altura do ícone",
+			"custom_Device": "Dispositivo",
+			"custom_Name": "Nome",
+			"custom_Port": "Porta",
+			"custom_Handler": "Handler",
+			"custom handler desc": "código para processar a notificação recebida do dispositivo de eco",
+			"custom dev desc": "Configuração de dispositivo personalizado"
+		}
+	}
+}

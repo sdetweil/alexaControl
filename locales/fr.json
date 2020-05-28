@@ -1,0 +1,29 @@
+{
+	"alexaControl": {
+		"PAGE": "page ",
+		"REFRESH": "refresh mirror",
+		"RESTART": "restart mirror",
+		"STOP": "stop mirror",
+		"REBOOT": "reboot mirror",
+		"SHUTDOWN": "shutdown mirror",
+		"MONITOR": "mirror",
+		"config": {
+			"main_title": "AlexaControl Settings",
+			"port_range": "plage de ports de périphérique",
+			"device_name": "Nom de ce périphérique miroir",
+			"approach": "approche à utiliser pour masquer l'écran pendant le sommeil",
+			"pm2 process Name": "pm2 Nom du processus",
+			"Icon settings": "Paramètres des icônes",
+			"if Icon should be shown": "si l'icône doit être affichée",
+			"url of the image icon": "URL de l'icône de l'image",
+			"icon width": "largeur de l'icône",
+			"icon height": "hauteur de l'icône",
+			"custom_Device": "appareil",
+			"custom_Name": "Nom",
+			"custom_Port": "Port",
+			"custom_Handler": "gestionnaire d'événements",
+			"custom handler desc": "code pour traiter la notification reçue de l'appareil d'écho",
+			"custom dev desc": "Configuration d'appareil personnalisée"
+		}
+	}
+}

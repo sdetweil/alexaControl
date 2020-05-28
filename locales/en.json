@@ -1,0 +1,29 @@
+{
+	"alexaControl": {
+		"PAGE": "page ",
+		"REFRESH": "refresh mirror",
+		"RESTART": "restart mirror",
+		"STOP": "stop mirror",
+		"REBOOT": "reboot mirror",
+		"SHUTDOWN": "shutdown mirror",
+		"MONITOR": "mirror",
+		"config": {
+			"main_title": "AlexaControl Settings",
+			"port_range": "device port range",
+			"device_name": "Name of this mirror device",
+			"approach": "approach to use for blanking screen on sleep",
+			"pm2 process Name": "pm2 process Name",
+			"Icon settings": "Icon settings",
+			"if Icon should be shown": "if Icon should be shown",
+			"url of the image icon": "url of the image icon",
+			"icon width": "icon width",
+			"icon height": "icon height",
+			"custom_Device": "Device",
+			"custom_Name": "Name",
+			"custom_Port": "Port",
+			"custom_Handler": "Handler",
+			"custom handler desc": "code to process the notification received from echo device",
+			"custom dev desc": "Custom Device configuration"
+		}
+	}
+}
