@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 let _acpath = require("path");
 let FauxMo = require(_acpath.resolve(
 	document.currentScript.src.substring(
