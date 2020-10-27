@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 let _acpath = require("path");
 let FauxMo = require(_acpath.resolve(
 	document.currentScript.src.substring(
@@ -7,6 +8,7 @@ let FauxMo = require(_acpath.resolve(
 	"node_modules",
 	"node-fauxmo"
 ));
+
 let pm2 = require(_acpath.resolve(
 	document.currentScript.src.substring(
 		7,
@@ -15,6 +17,8 @@ let pm2 = require(_acpath.resolve(
 	"node_modules",
 	"pm2"
 ));
+
+delete _acPath;
 
 function _alexac($scope, $http, $q, AutoSleepService, Focus, $translate) {
 	const exec = require("child_process").exec;

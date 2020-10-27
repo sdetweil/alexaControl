@@ -5,7 +5,7 @@
 	"main": "controller.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"postinstall": "cp .pre-commit .git/hooks/pre-commit"
+		"postinstall": "./post_install"
 	},
 	"repository": {
 		"type": "git",
@@ -19,5 +19,9 @@
 	"homepage": "https://github.com/sdetweil/alexaControl#readme",
 	"devDependencies": {
 		"prettier": "^2.0.5"
+	},
+	"dependencies": {
+		"node-fauxmo": "0.0.7",
+		"pm2": "^4.4.0"
 	}
 }
