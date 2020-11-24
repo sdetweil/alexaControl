@@ -1,21 +1,23 @@
-_omPath = require("path");
-let FauxMo = require(path.resolve(
+let _acpath = require("path");
+let FauxMo = require(_acpath.resolve(
 	document.currentScript.src.substring(
 		7,
-		document.currentScript.src.lastIndexOf(_omPath.sep)
+		document.currentScript.src.lastIndexOf(_acpath.sep)
 	),
 	"node_modules",
 	"node-fauxmo"
 ));
-let pm2 = require(path.resolve(
+
+let pm2 = require(_acpath.resolve(
 	document.currentScript.src.substring(
 		7,
-		document.currentScript.src.lastIndexOf(_omPath.sep)
+		document.currentScript.src.lastIndexOf(_acpath.sep)
 	),
 	"node_modules",
 	"pm2"
 ));
-delete _omPath;
+
+delete _acPath;
 
 function _alexac($scope, $http, $q, AutoSleepService, Focus, $translate) {
 	const exec = require("child_process").exec;
